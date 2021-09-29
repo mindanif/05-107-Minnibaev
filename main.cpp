@@ -3,6 +3,7 @@ using namespace std;
 
 int main() {
     system("chcp 65001");
+    setlocale(LC_ALL, "Russian");
     /*
     cout << "Введите день и номер месяца через Enter" << endl;
     int a,b;
