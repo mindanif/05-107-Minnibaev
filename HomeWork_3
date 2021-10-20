@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+// Задача 1
+void F1(int n){
+    if (n / 10 > 0){
+        F1(n / 10);
+    }
+    cout << n % 10 << " ";
+}
+
+//Задача 2
+int F2(int n, int s = 1){
+    if (n % 10 != 1 && n % 10 != 0){
+        return -1;
+    }
+    if (n > 0){
+        return F2(n / 10,s*2) + (n % 10) * s;
+    }
+}
+
+//Задача 3
+void F3(int n, int s = 2){
+    if (n > 0){
+        while (n % s == 0){
+            n /= s;
+            cout << " * " << s ;
+        }
+    }
+    F3(n, s+1);
+}
+
+int main() {
+    setlocale(LC_ALL,"RUSSIAN");
+    int N;
+    int X;
+    int S;
+    cout << "Для первой задачи число";
+    cout <<endl;
+    cin >> N;
+    F1(N);
+    cout <<endl;
+    
+    cout << "Для второй задачи число";
+    cout <<endl;
+    cin >> X;
+    cout << F2(X);
+    cout <<endl;
+    
+    cout << "Для третьей задачи число";
+    cout <<endl;
+    cin >> S;
+    cout << "1";
+    F3(S);
+    return 0;
+}
