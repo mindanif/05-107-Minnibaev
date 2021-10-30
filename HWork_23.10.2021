@@ -53,12 +53,15 @@ int main() {
     cin >> x >> y;
     int* a = F1(x,y);
     print_array(a,15);
+    delete [] a;
     cout << endl;
+
     int N;
     cin >> N;
     int* b = F2(N);
     print_array(b, N);
     cout << endl;
+    delete [] b;
     cout << F3();
     return 0;
 }
