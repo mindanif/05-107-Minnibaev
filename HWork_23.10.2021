@@ -11,21 +11,19 @@ void print_array(int *array, const int size){
 }
 
 
-int *F1(int a1, int b){
-    const int size = 15;
+int *F1(int a1, int b, const int size){
     int *arr = new int[size];
-    for (int i = 0; i < 15; i++){
+    for (int i = 0; i < size; i++){
         arr[i] = a1;
         a1 += b;
     }
     return arr;
 }
 
-int *F2(int N, int g = 0){
-    int *a;
+int *F2(const int N, int g = 0){
+    int* a = new int[N];
     int j;
     srand(time(NULL));
-    a = (int *) malloc(N*sizeof(int));
     for(int i=0; i<N; i++) a[i] = i+1+g;
     for(int k=N; k>1; k--) {
         j = rand()%k;
@@ -49,10 +47,11 @@ int F3(){
 }
 
 int main() {
-    int x, y;
-    cin >> x >> y;
-    int* a = F1(x,y);
-    print_array(a,15);
+    system("chcp 65001");
+    int x, y, size;
+    cin >> x >> y >> size;
+    int* a = F1(x,y, size);
+    print_array(a,size);
     delete [] a;
     cout << endl;
 
