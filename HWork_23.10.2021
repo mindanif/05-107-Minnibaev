@@ -43,6 +43,7 @@ int F3(){
             b++;
         }
     }
+    delete [] a;
     return b;
 }
 
