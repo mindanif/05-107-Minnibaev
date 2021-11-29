@@ -67,14 +67,19 @@ int main() {
      */
     //Задание 4
     /*
-    char file[256];
+       char file[256];
     char l[6] = ".imim";
     gets_s(file);
     int Len = strlen(file);
     int i = Len - 1;
     while (file[i] != '.'){
         i--;
+        if (i == 0){
+            i = Len;
+            break;
+        }
     }
+
     for (int j = 0; j < 6; j++){
         file[i] = l[j];
         i++;
