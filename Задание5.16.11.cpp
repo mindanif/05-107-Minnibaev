@@ -3,8 +3,24 @@
 #include <string>
 #include <cstdio>
 #include "windows.h"
+#include <math.h>
 using namespace std;
-
+int iny (char h[64], int j){    //ко Второму заданию
+    j--;
+    int i = 0;
+    int S = 0;
+    while (j >= 0){
+        int l = 1;
+        for (int k = 0; k < i; k++){
+            l *= 10;
+        }
+        int H = h[j];
+        S += l * (H - 48);
+        i++;
+        j--;
+    }
+    return S;
+}
 int main() {
     //setlocale(LC_ALL, "Russian");
     system("chcp 65001");
@@ -30,19 +46,27 @@ int main() {
     char sum[256];
     gets_s(sum);
     int b = 0;
-    string h;
+    char h[64];
+    int g;
+    int j = 0;
     for (int i = 0; i < strlen(sum); i++){
+
         if (sum[i] != '+'){
-            h += sum[i];
+            h[j] = sum[i];
+
+            j++;
         }
         else{
-            b += stoi(h);
-            h = "";
+            h[j+1] = '\0';
+            b += iny(h, j);
+            j = 0;
         }
+        g = j;
     }
-    b += stoi(h);
+    h[g] = '\0';
+    b += iny(h, g);
     cout << b;
-     */
+    */
     //Задание 3
     /*
     char FIO[256];
@@ -67,7 +91,7 @@ int main() {
      */
     //Задание 4
     /*
-       char file[256];
+    char file[256];
     char l[6] = ".imim";
     gets_s(file);
     int Len = strlen(file);
@@ -85,7 +109,7 @@ int main() {
         i++;
     }
     cout << file;
-     */
+    */
     //Задание 5
     /*
     char string[256];
