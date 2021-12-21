@@ -6,7 +6,7 @@ using namespace std;
 void inArr(int** mas, int n, int m){
     for (int i = 0; i < n; i++){
         for (int j = 0; j < m; j++){
-            mas[i][j] = rand() % 30 + 1;
+            mas[i][j] = rand() % 40 + 1;
         }
     }
 }
@@ -21,11 +21,12 @@ void prArr(int** mas, int n, int m){
     }
 }
 
-int main() {
-    //Задание 1
-    /*
+void Num_1(){
     srand(time(NULL));
-    int n = 6, m = 8;
+    int n, m ;
+    cout << "enter the dimensions of the array: n*m";
+    cout << endl;
+    cin >> n >> m;
     int** maf = new int* [n];
     for (int i = 0; i < n; i++){
         maf[i] = new int[m];
@@ -34,7 +35,6 @@ int main() {
     for (int i = 0; i < n-1; i++){
         mat1[i] = new int[m-1];
     }
-
     inArr(maf, n, m);
     int min = 33000;
     int ki, kj;
@@ -66,11 +66,20 @@ int main() {
     prArr(maf, n, m);
     cout << '\n';
     prArr(mat1, n-1, m-1);
-    */
-    //Задание 2
-    /*
+    for (int i = 0; i < n; ++i)
+        delete[] maf[i];
+    delete[] maf;
+    for (int i = 0; i < n-1; ++i)
+        delete[] mat1[i];
+    delete[] mat1;
+}
+
+void Num_2(){
     srand(time(NULL));
-    int n = 2, m = 3, l = 2;
+    int n, m, l;
+    cout << "enter the dimensions of the array: n*m, m*l";
+    cout << endl;
+    cin >> n >> m >> l;
     int** maf = new int* [n];
     for (int i = 0; i < n; i++){
         maf[i] = new int[m];
@@ -79,19 +88,16 @@ int main() {
     for (int i = 0; i < m; i++){
         mat1[i] = new int[l];
     }
-
     inArr(maf, n, m);
     inArr(mat1, m, l);
     prArr(maf, n, m);
     cout << endl;
     prArr(mat1, m, l);
     cout << endl;
-
     int** prod = new int* [n];
     for (int i = 0; i < n; i++){
         prod[i] = new int[l];
     }
-
     for(int i = 0; i < n; i++)
         for(int j = 0; j < l; j++)
         {
@@ -99,12 +105,25 @@ int main() {
             for(int k = 0; k < m; k++)
                 prod[i][j] += maf[i][k] * mat1[k][j];
         }
-    prArr(prod, m, l);
-     */
-    //Задание 3
-    /*
+    prArr(prod, n, l);
+
+    for (int i = 0; i < n; ++i)
+        delete[] maf[i];
+    delete[] maf;
+    for (int i = 0; i < m; ++i)
+        delete[] mat1[i];
+    delete[] mat1;
+    for (int i = 0; i < n; ++i)
+        delete[] prod[i];
+    delete[] prod;
+}
+
+void Num_3(){
     srand(time(NULL));
-    int n = 3;
+    int n;
+    cout << "enter the dimensions of the array: n*n";
+    cout << endl;
+    cin >> n;
     int** maf = new int* [n];
     for (int i = 0; i < n; i++){
         maf[i] = new int[n];
@@ -122,11 +141,21 @@ int main() {
     prArr(mat, n, n);
     cout << endl;
     prArr(maf, n, n);
-     */
-    //Задание 4
-    /*
+
+    for (int i = 0; i < n; ++i)
+        delete[] maf[i];
+    delete[] maf;
+    for (int i = 0; i < n; ++i)
+        delete[] mat[i];
+    delete[] mat;
+}
+
+void Num_4(){
     srand(time(NULL));
-    int n = 3;
+    int n;
+    cout << "enter the dimensions of the array: n*n";
+    cout << endl;
+    cin >> n;
     int** maf = new int* [n];
     for (int i = 0; i < n; i++){
         maf[i] = new int[n];
@@ -149,26 +178,33 @@ int main() {
     }
     for (int i = 0; i < n; i++){
         for (int j = 0; j < n; j++){
-           mat[i][j] = maf[i][j];
+            mat[i][j] = maf[i][j];
         }
     }
-
     for (int i = 0; i < n; i++){
         mat[i][kj] = maf[ki][i];
     }
-
     for (int i = 0; i < n; i++){
         mat[ki][i] = maf[i][kj];
     }
-
     prArr(maf, n, n);
     cout << endl;
     prArr(mat, n, n);
-     */
-    //Задание 5
-  /*
+
+    for (int i = 0; i < n; ++i)
+        delete[] maf[i];
+    delete[] maf;
+    for (int i = 0; i < n; ++i)
+        delete[] mat[i];
+    delete[] mat;
+}
+
+void Num_5(){
     srand(time(NULL));
-    int n = 3, m = 4;
+    int n, m;
+    cout << "enter the dimensions of the array: n*m";
+    cout << endl;
+    cin >> n >> m;
     int** maf = new int* [n];
     for (int i = 0; i < n; i++){
         maf[i] = new int[m];
@@ -196,7 +232,6 @@ int main() {
                 min = maf[i][j];
                 minj = j;
             }
-
         }
         mat[i][minj] = max1;
         max1 = max;
@@ -206,6 +241,26 @@ int main() {
     prArr(maf, n, m);
     cout << endl;
     prArr(mat, n, m);
-    */
+
+    for (int i = 0; i < n; ++i)
+        delete[] maf[i];
+    delete[] maf;
+    for (int i = 0; i < n; ++i)
+        delete[] mat[i];
+    delete[] mat;
+}
+
+int main() {
+    int a;
+    cout << "Enter the job number";
+    cout << endl;
+    cin >> a;
+    switch (a) {
+        case 1:Num_1();break;
+        case 2:Num_2();break;
+        case 3:Num_3();break;
+        case 4:Num_4();break;
+        case 5:Num_5();break;
+    }
     return 0;
 }
